@@ -6,7 +6,7 @@ hangman s = hangman' s "" 0
 hangman' :: String -> String -> Int -> IO ()
 hangman' s d n = do
     putStr "Enter a char: "
-    i <- toLower <$> getChar 
+    i <- toLower `fmap` getChar 
     let sec = decodeSecret s (i:d)
     putStrLn ""
     putStrLn ("Secret " ++ sec)
